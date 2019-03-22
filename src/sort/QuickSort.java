@@ -1,5 +1,8 @@
 package sort;
 
+import java.util.Date;
+import java.util.Random;
+
 public class QuickSort {
 
     public void quickSort(int[] input){
@@ -17,11 +20,11 @@ public class QuickSort {
     private int partition(int[] input, int low, int high) {
         int pivot = input[low];
         while (low < high){
-            while (low < high && input[high] >= pivot){
+            while (low < high && input[high] <= pivot){
                 high--;
             }
             input[low] = input[high];
-            while (low < high && input[low] <= pivot){
+            while (low < high && input[low] >= pivot){
                 low++;
             }
             input[high] = input[low];
@@ -32,10 +35,18 @@ public class QuickSort {
 
     public static void main(String[] args) {
         QuickSort quickSort = new QuickSort();
-        int[] a = new int[]{4,5,1,6,2,7,3,8};
+        int i = 50;
+        int[] a = new int[i];
+        Random random = new Random();
+        for (int j = 0 ; j < i ; j++){
+            a[j] = random.nextInt(7);
+        }
+        System.out.println(a.length);
+        System.out.println(new Date() + "start !");
         quickSort.quickSort(a);
-        for (int i : a){
-            System.out.print(i + " ");
+        System.out.println(new Date() + "end !");
+        for (int q : a){
+            System.out.print(q + " ");
         }
     }
 

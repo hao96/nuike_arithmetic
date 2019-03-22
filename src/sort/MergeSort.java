@@ -32,7 +32,7 @@ public class MergeSort {
         }
 
         for (int n = 0 ; n < temp.length ; n++){
-            arr[n + low] = temp[n];
+            arr[low + n] = temp[n];
         }
 
 //        System.arraycopy(temp,0,arr,low,temp.length);
